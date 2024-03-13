@@ -12,15 +12,19 @@ if [! -f "${PREFIX}/bin/perl" ];then
 	INSTALL_PERL="perl"
 	PKG="true"
 fi
+if [! -f "${PREFIX}/bin/termux-x11" ];then
+	INSTALL_X11="termux-x11-nightly"
+	PKG="true"
+fi
 if [ "${PKG}" == "true" ];then
 	echo "Installing missing packages..."
-	pkg install "${INSTALL_PROOT}" "${INSTALL_WGET}" "${INSTALL_PERL}"
+	pkg install "${INSTALL_PROOT}" "${INSTALL_WGET}" "${INSTALL_PERL}" "${INSTALL_X11}"
 fi
 echo "Installing ubuntu proot..."
 proot-distro install ubuntu || exit 2
 UBUNTU_DIR="${PREFIX}/var/lib/proot-distro/installed-rootfs/ubuntu"
 cd "${UBUNTU_DIR}/usr/bin"
-wget -q https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/raw/main/x11-splash.py -O x11-splash.py
+wget -q https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/main/x11-splash.py -O x11-splash.py
 chmod +x x11-splash.py
 clear
 echo "Input the credentials you want:"
@@ -63,3 +67,5 @@ rm \"\${TERMUX_PREFIX}/tmp/isDE\"
 echo \"Desktop closed\"
 " >"${PREFIX}/bin/ubuntu"
 chmod +x "${PREFIX}/bin/ubuntu"
+mkdir -p "${HOME}/.shortcuts/tasks"
+echo "bash -c ubuntu" > "${HOME}/.shortcuts/tasks/Ubuntu"
