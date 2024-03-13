@@ -14,6 +14,7 @@
  
 ## Shortcut
  - If you want to have a direct shortcut to your ubuntu desktop, you should create a widget and select <b>Termux:Widgets</b>:
+ - ![screenshot](screen-widget.png=200x250)
  <img src="https://github.com/pi-dev500/termuxubuntu-x11/blob/main/screen-widget.png?raw=true" width="200">
  - Then select <b>Termux shortcut</b> (for most of android lauchers, hold and place on homescreen)
  - It will open a window whith a file browser. Click on <b>tasks</b>, then on <b>Ubuntu</b>.
