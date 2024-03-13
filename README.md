@@ -23,3 +23,7 @@
 ## Screenshots
  - <img src="https://github.com/pi-dev500/termuxubuntu-x11/blob/main/screenshot.png?raw=true" width="300"></img>
  - <img src="https://github.com/pi-dev500/termuxubuntu-x11/blob/main/screenshot2.png?raw=true" width="300"></img>
+ 
+## Bugs or features requests
+
+Open an [issue](https://github.com/pi-dev500/termuxubuntu-x11/issues)
