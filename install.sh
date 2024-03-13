@@ -25,6 +25,9 @@ proot-distro install ubuntu || exit 2
 UBUNTU_DIR="${PREFIX}/var/lib/proot-distro/installed-rootfs/ubuntu"
 cd "${UBUNTU_DIR}/usr/bin"
 wget -q https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/main/x11-splash.py -O x11-splash.py
+mkdir -p "${UBUNTU_DIR}/usr/share/backgrounds"
+cd "${UBUNTU_DIR}/usr/share/backgrounds"
+wget -q "https://github.com/pi-dev500/termuxubuntu-x11/blob/main/start.jpg?raw=true" -O start.jpg
 chmod +x x11-splash.py
 clear
 echo "Input the credentials you want:"
