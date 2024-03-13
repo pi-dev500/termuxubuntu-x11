@@ -13,8 +13,8 @@
  - Now, if you followed correctly the instructions, you should have a working ubuntu desktop that can be started by running ```ubuntu``` in termux.
  
 ## Shortcut
- - If you want to have a direct shortcut to your ubuntu desktop, you should create a widget and select Termux:Widgets:
- ![Termux Widgets](screen-widget.png)
+ - If you want to have a direct shortcut to your ubuntu desktop, you should create a widget and select **Termux:Widgets**:
+ <img src="https://github.com/pi-dev500/termuxubuntu-x11/blob/main/screen-widget.png?raw=true" width="14">
  - Then select __**Termux shortcut**__ (for most of android lauchers, hold and place on homescreen)
  - It will open a window whith a file browser. Click on **tasks**, then on **Ubuntu**.
  - A new icon will appear at the bottom of your screen. Hold down a click on it and move it to the desired position on your home screen.
