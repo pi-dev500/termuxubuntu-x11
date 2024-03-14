@@ -51,7 +51,7 @@ fi
 # crypt password to make it understandable by adduser
 CPASS=`perl -e 'print crypt("${password}", "salt"),"\n"'`
 echo "Configurating proot..."
-echo -e "apt install sudo xfce4 firefox \n useradd -m -p '${CPASS}' ${username}" | proot-distro login ubuntu
+echo -e "apt update && apt install sudo xfce4 firefox \n useradd -m -p '${CPASS}' ${username}" | proot-distro login ubuntu
 echo "
 TERMUX_PREFIX=\${PREFIX}
 if [ -f \"\${TERMUX_PREFIX}/tmp/isDE\" ];then
