@@ -56,14 +56,14 @@ echo "
 TERMUX_PREFIX=\${PREFIX}
 if [ -f \"\${TERMUX_PREFIX}/tmp/isDE\" ];then
   echo \"Desktop already started, exiting now...\"
+  am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null
   exit 0
 fi
 echo ubuntu> \"\${TERMUX_PREFIX}/tmp/isDE\"
 echo \"Starting Ubuntu xfce desktop...\"
-bash ~/.sound
+am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null
 termux-x11 :1 &
 X11_PID=\$!
-am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity >/dev/null
 echo -e \"export DISPLAY=:1\nxfwm4&\nx11-splash.py & \nsudo service dbus start\nxfce4-session \" | proot-distro login --user \"${username}\" ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_last --shared-tmp --fix-low-ports &>/dev/null
 kill $X11_PID
 rm \"\${TERMUX_PREFIX}/tmp/isDE\"
