@@ -1,4 +1,4 @@
-
+#!/data/data/com.termux/files/usr/bin/bash
 echo "Checking dependencies..."
 if [! -f "${PREFIX}/bin/proot-distro"]; then
 	INSTALL_PROOT="proot-distro"
@@ -53,6 +53,7 @@ CPASS=`perl -e 'print crypt("${password}", "salt"),"\n"'`
 echo "Configurating proot..."
 echo -e "apt update && apt install sudo xfce4 firefox \n useradd -m -p '${CPASS}' ${username}" | proot-distro login ubuntu
 echo "
+#!/data/data/com.termux/files/usr/bin/bash
 TERMUX_PREFIX=\${PREFIX}
 if [ -f \"\${TERMUX_PREFIX}/tmp/isDE\" ];then
   echo \"Desktop already started, exiting now...\"
