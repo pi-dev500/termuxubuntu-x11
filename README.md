@@ -27,3 +27,8 @@
 ## Bugs or features requests
 
 Open an [issue](https://github.com/pi-dev500/termuxubuntu-x11/issues)
+
+## TODO
+- [ ] Create xfce4 termux adapted battery plugin
+- [ ] Improve startup screen using ctk instead of tkinter
+- [ ] Auto configure xfce to be easy to use with touchscreens
