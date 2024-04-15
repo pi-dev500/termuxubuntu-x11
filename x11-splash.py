@@ -1,28 +1,26 @@
 #!/usr/bin/env python3
-from tkinter import Tk, Label
-from PIL import Image, ImageTk
+from customtkinter import CTk, CTkLabel,CTkImage
+from PIL import Image
 from math import *
 from time import sleep
 import os
-import sys
 counter=0
-root=Tk()
+root=CTk()
 root.wm_attributes("-fullscreen",True)
 height=root.winfo_screenheight()
 imgp=Image.open("/usr/share/backgrounds/start.png")
 img_x, img_y=imgp.size
-imgp=imgp.resize((ceil(height/img_y*img_x),height))
-image=ImageTk.PhotoImage(imgp)
-label_img=Label(root,image=image)
+image=CTkImage(light_image=imgp,dark_image=imgp,size=(ceil(height/img_y*img_x),height))
+label_img=CTkLabel(root,image=image,text="")
 label_img.place(relx=0.5, rely=0.5,anchor="center")
 root.bind("<Escape>",lambda a :root.destroy())
-oldheight=height
-while (counter<=100 and not os.path.exists("/tmp/started")):
+def update(args=None):
+    height=root.winfo_height()
+    image.configure(size=(ceil(height/img_y*img_x),height))
+root.bind("<Configure>",update)
+root.after(10000,root.destroy)
+while not os.path.exists("/tmp/started"):
     root.update()
-    oldheight, height=height,root.winfo_height()
-    if oldheight!=height:
-        os.system(sys.argv[0])
-        quit(0)
-    sleep(0.1)
-    counter+=1
-quit(0)
+    sleep(0.05)
+    
+root.destroy()
