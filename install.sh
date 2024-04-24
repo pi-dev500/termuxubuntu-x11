@@ -31,7 +31,7 @@ if [ ! "${password}" == "${cpassword}" ];then
 	fi
 fi
 # crypt password to make it understandable by adduser
-CPASS=`perl -e 'print crypt("${password}", "salt"),"\n"'`
+CPASS=`perl -e "print crypt(\"${password}\", \"salt\"),\"\n\""`
 echo "Configurating proot..."
 echo -e "apt update
 apt install fakeroot sudo xfce4 firefox
