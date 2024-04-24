@@ -1,25 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 echo "Checking dependencies..."
-if [! -f "${PREFIX}/bin/proot-distro"]; then
-	INSTALL_PROOT="proot-distro"
-	PKG="true"
-fi
-if [! -f "${PREFIX}/bin/wget" ];then
-	INSTALL_WGET="wget"
-	PKG="true"
-fi
-if [! -f "${PREFIX}/bin/perl" ];then
-	INSTALL_PERL="perl"
-	PKG="true"
-fi
-if [! -f "${PREFIX}/bin/termux-x11" ];then
-	INSTALL_X11="termux-x11-nightly"
-	PKG="true"
-fi
-if [ "${PKG}" == "true" ];then
-	echo "Installing missing packages..."
-	pkg install "${INSTALL_PROOT}" "${INSTALL_WGET}" "${INSTALL_PERL}" "${INSTALL_X11}" pulseaudio
-fi
+echo "Installing dependencies..."
+pkg install proot-distro termux-x11-nightly x11-repo perl wget pulseaudio
 echo "Installing ubuntu proot..."
 proot-distro install ubuntu || exit 2
 UBUNTU_DIR="${PREFIX}/var/lib/proot-distro/installed-rootfs/ubuntu"
