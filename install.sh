@@ -1,7 +1,7 @@
 #!/data/data/com.termux/files/usr/bin/bash
 echo "Checking dependencies..."
 echo "Installing dependencies..."
-pkg install proot-distro termux-x11-nightly x11-repo perl wget pulseaudio
+pkg install proot-distro termux-x11-nightly x11-repo perl wget -y pulseaudio
 echo "Installing ubuntu proot..."
 proot-distro install ubuntu || exit 2
 UBUNTU_DIR="${PREFIX}/var/lib/proot-distro/installed-rootfs/ubuntu"
