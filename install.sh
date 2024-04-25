@@ -34,7 +34,7 @@ fi
 CPASS=`perl -e "print crypt(\"${password}\", \"salt\"),\"\n\""`
 echo "Configurating proot..."
 echo -e "apt update
-apt install fakeroot sudo xfce4 firefox
+apt install fakeroot sudo xfce4 firefox -y
 pip install customtkinter --break-system-packages
 useradd -m -p '${CPASS}' ${username}" | proot-distro login ubuntu
 echo "
