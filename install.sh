@@ -19,13 +19,13 @@ echo -n "PASSWORD: "
 read -s password
 echo -n "CONFIRM PASSWORD: "
 read -s cpassword
-if [ ! "${password}" == "${cpassword}" ];then
+if [ "${password}" -ne "${cpassword}" ];then
 	echo "Passwords don't match, please retry: "
 	echo -n "PASSWORD: "
 	read -s password
 	echo -n "CONFIRM PASSWORD: "
 	read -s cpassword
-	if [ ! "${password}" == "${cpassword}" ];then
+	if [ "${password}" -ne "${cpassword}" ];then
 		echo "Passwords don't match, exiting..."
 		exit 203
 	fi
