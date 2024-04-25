@@ -8,7 +8,7 @@
  - Then, you need to launch Termux app and run:
  ```
  pkg install wget
- wget -qO- https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/main/install.sh | bash
+ wget https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/main/install.sh -O ubuinstall.sh && chmod +x ubuinstall.sh && ./ubuinstall.sh
  ```
  - Now, if you followed correctly the instructions, you should have a working ubuntu desktop that can be started by running ```ubuntu``` in termux.
  
