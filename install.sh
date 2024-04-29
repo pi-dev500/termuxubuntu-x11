@@ -17,9 +17,10 @@ echo -n "USERNAME: "
 read username
 echo -n "PASSWORD: "
 read -s password
+echo
 echo -n "CONFIRM PASSWORD: "
 read -s cpassword
-if [ "${password}" -ne "${cpassword}" ];then
+if [ "${password}" != "${cpassword}" ];then
 	echo "Passwords don't match, please retry: "
 	echo -n "PASSWORD: "
 	read -s password
