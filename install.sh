@@ -42,7 +42,7 @@ echo "pip install customtkinter --break-system-packages" | proot-distro login ub
 
 echo "useradd -p \"\" ${username}" | proot-distro login ubuntu
 
-echo "\"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
+echo "echo \"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
 echo "
 #!/data/data/com.termux/files/usr/bin/bash
 TERMUX_PREFIX=\${PREFIX}
