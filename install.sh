@@ -31,13 +31,12 @@ if [ "${password}" != "${cpassword}" ];then
 		exit 203
 	fi
 fi
-# crypt password to make it understandable by adduser
-CPASS=`perl -e "print crypt(\"${password}\", \"salt\"),\"\n\""`
 echo "Configurating proot..."
 echo -e "apt update
 apt install fakeroot sudo xfce4 firefox -y
 pip install customtkinter --break-system-packages
-useradd -m -p '${CPASS}' ${username}" | proot-distro login ubuntu
+useradd -p \"\" ${username}
+echo \"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
 echo "
 #!/data/data/com.termux/files/usr/bin/bash
 TERMUX_PREFIX=\${PREFIX}
