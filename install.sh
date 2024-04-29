@@ -58,7 +58,7 @@ pulseaudio --start
 termux-x11 :1 &
 X11_PID=\$!
 echo -e \"export DISPLAY=:1\nxfwm4&\nx11-splash.py & \nsudo service dbus start\nxfce4-session \" | proot-distro login --user \"${username}\" ubuntu --bind /dev/null:/proc/sys/kernel/cap_last_last --shared-tmp --fix-low-ports &>/dev/null
-kill $X11_PID
+kill \$X11_PID
 rm \"\${TERMUX_PREFIX}/tmp/isDE\"
 echo \"Desktop closed\"
 " >"${PREFIX}/bin/ubuntu"
