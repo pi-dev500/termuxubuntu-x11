@@ -3,7 +3,7 @@ echo "Checking dependencies..."
 echo "Installing dependencies..."
 pkg install proot-distro termux-x11-nightly x11-repo perl wget -y pulseaudio
 echo "Installing ubuntu proot..."
-proot-distro install ubuntu || exit 2
+proot-distro install ubuntu
 UBUNTU_DIR="${PREFIX}/var/lib/proot-distro/installed-rootfs/ubuntu"
 cd "${UBUNTU_DIR}/usr/bin"
 wget -q https://raw.githubusercontent.com/pi-dev500/termuxubuntu-x11/main/x11-splash.py -O x11-splash.py
@@ -32,11 +32,17 @@ if [ "${password}" != "${cpassword}" ];then
 	fi
 fi
 echo "Configurating proot..."
-echo -e "apt update
-apt install fakeroot sudo xfce4 firefox -y
-pip install customtkinter --break-system-packages
-useradd -p \"\" ${username}
-echo \"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
+echo -e "apt update" | proot-distro login ubuntu
+
+echo "apt upgrade -y" | proot-distro login ubuntu 
+
+echo "apt install fakeroot sudo xfce4 firefox -y" | proot-distro login ubuntu
+
+echo "pip install customtkinter --break-system-packages" | proot-distro login ubuntu
+
+echo "useradd -p \"\" ${username}" | proot-distro login ubuntu
+
+echo "\"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
 echo "
 #!/data/data/com.termux/files/usr/bin/bash
 TERMUX_PREFIX=\${PREFIX}
