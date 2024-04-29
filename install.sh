@@ -40,7 +40,7 @@ echo "apt install fakeroot sudo xfce4 firefox -y" | proot-distro login ubuntu
 
 echo "pip install customtkinter --break-system-packages" | proot-distro login ubuntu
 
-echo "useradd -p \"\" ${username} &&     usermod -aG sudo ${user}" | proot-distro login ubuntu
+echo "useradd -p \"\" ${username} &&     usermod -aG sudo ${user} && echo \"$user ALL=(ALL:ALL) NOPASSWD:ALL\" >> /etc/sudoers" | proot-distro login ubuntu
 
 echo "echo \"${username}:${password}\" | chpasswd" | proot-distro login ubuntu
 echo "
