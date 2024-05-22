@@ -1,5 +1,5 @@
 # termuxubuntu-x11
- bring easely a xubuntu desktop on termux (ANDROID)
+ bring easely a xubuntu desktop on termux (ANDROID) That is currently not working, I'll change that when I will have the time...
 
 ## Installation
  - First, you need to install **Termux** and **Termux:Widgets** on your Android device using [F-Droid](https://f-droid.org) (Google play versions are not supported)
